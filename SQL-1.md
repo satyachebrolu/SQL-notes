@@ -45,37 +45,117 @@ SQL queries are used to retrieve, manipulate, and store data within a relational
 ## Keywords and Their Syntax
 
 ### Syntax
-**SELECT** field_name1, field_name2,....  
-**FROM** table_name ;
+```sql
+SELECT field_name1, field_name2,....  
+FROM table_name ;
+```
 
 ### DISTINCT Syntax
-**SELECT** **DISTINCT** field_name   
-**FROM** table_name;
+```sql
+SELECT DISTINCT field_name   
+FROM table_name;
+```
 
 ### ALIAS Syntax
-**SELECT** field_name **AS** alias_name  
-**FROM** table_name;
+```sql
+SELECT field_name AS alias_name  
+FROM table_name;
+```
 
 ### VIEW Syntax
-**VIEW** field_name1, field_name2 
-**FROM** table_name;
+```sql
+VIEW field_name1, field_name2 
+FROM table_name;
+```
 
 ### WHERE Syntax
-**SELECT** fiel_name
-**FROM** table_name
-**WHERE** (condition);
-
-```SQL
-These conditions can be given in different ways :  
--equal to sign(=)  
--IN statement i.e WHERE field_name IN (cond1, cond2)
+```sql
+SELECT field_name
+FROM table_name
+WHERE (condition);
 ```
-`Make sure to capitalize the keywords to make the code easier to understand.`
 
-## List of all the keywords
+### LIMIT Syntax
+```sql
+SELECT field_name
+FROM table_name
+LIMIT 10;
+```
+
+### These conditions can be given in different ways :  
+- **WHERE** field = 34
+- **WHERE** field = 'string'  
+- **IN** statement i.e **WHERE** field_name **IN** (cond1, cond2)
+
+
+`Make sure to capitalize the keywords to make the code easier to understand.`
+`The semicolon at the end is not necessary but its preferred to use it.`
+
+### AND 
+```SQL
+WHERE field = 45 AND field = 23
+```
+
+### OR 
+```SQL
+WHERE num = 90 OR num = 86
+```
+
+### LIKE
+```sql
+WHERE name LIKE "%s"
+```
+This gives all the names ending with a s.
+```sql
+WHERE name LIKE "_s%"
+```
+This gives the names whose second letter is s.
+Similarly you can use **NOT LIKE** too.
+
+### NULL
+```sql
+WHERE id IS NULL
+```
+Returns all the records with a null id.
+Similarly there is **IS NOT NULL** too
+
+## KEYWORD LIST : 
 
 - SELECT : To retrieve information from the fields of various tables in the database.
+  
 - FROM : To select the table from which we want to select the data.
+
 - DISTINCT : To select only the unique attributes present in the field chosen.
+  
 - AS : Aliasing the fieldname in the output panel.
+
 - VIEW : Used to view the data of your specifications from the table.
+
+- LIMIT : Used to limit the output to the number of rows required.
+
+## SQL Flavors
+
+SQL has a few different versions, or flavors. Some are free, while others have customer support and are made to complement major databases such as Microsoft's SQL Server or Oracle Database, which are used by many companies.
+
+# Selecting data
+
+## COUNT() :
+
+This is used to count the number of required with the specifications you have entered.
+### Syntax
+```sql
+SELECT COUNT(fieldname1), COUNT(DISTINCT fieldname2)
+FROM tablename
+```
+This can also be used along with **DISTINCT** .  
+
+## BETWEEN :
+
+This is used to filter the records with the give condition.
+
+### Example
+```sql
+SELECT roll_no
+FROM students
+WHERE roll_no BETWEEN 34 AND 78;
+```
