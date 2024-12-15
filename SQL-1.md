@@ -88,7 +88,7 @@ LIMIT 10;
 - **IN** statement i.e **WHERE** field_name **IN** (cond1, cond2)
 
 
-`Make sure to capitalize the keywords to make the code easier to understand.`
+`Make sure to capitalize the keywords to make the code easier to understand.`  
 `The semicolon at the end is not necessary but its preferred to use it.`
 
 ### AND 
@@ -109,15 +109,15 @@ This gives all the names ending with a s.
 ```sql
 WHERE name LIKE "_s%"
 ```
-This gives the names whose second letter is s.
+This gives the names whose second letter is s.  
 Similarly you can use **NOT LIKE** too.
 
 ### NULL
 ```sql
 WHERE id IS NULL
 ```
-Returns all the records with a null id.
-Similarly there is **IS NOT NULL** too
+Returns all the records with a null id.  
+Similarly there is **IS NOT NULL** too.
 
 ## KEYWORD LIST : 
 
@@ -159,3 +159,6 @@ SELECT roll_no
 FROM students
 WHERE roll_no BETWEEN 34 AND 78;
 ```
+
+# Aggregate Functions
+
