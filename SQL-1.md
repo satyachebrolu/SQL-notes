@@ -49,13 +49,27 @@ SQL queries are used to retrieve, manipulate, and store data within a relational
 **FROM** table_name ;
 
 ### DISTINCT Syntax
-**SELECT** **DISTINCT** fieldname   
-**FROM** tablename;
+**SELECT** **DISTINCT** field_name   
+**FROM** table_name;
 
 ### ALIAS Syntax
 **SELECT** field_name **AS** alias_name  
-**FROM** tablename;
+**FROM** table_name;
 
+### VIEW Syntax
+**VIEW** field_name1, field_name2 
+**FROM** table_name;
+
+### WHERE Syntax
+**SELECT** fiel_name
+**FROM** table_name
+**WHERE** (condition);
+
+```SQL
+These conditions can be given in different ways :  
+-equal to sign(=)  
+-IN statement i.e WHERE field_name IN (cond1, cond2)
+```
 `Make sure to capitalize the keywords to make the code easier to understand.`
 
 ## List of all the keywords
@@ -64,3 +78,4 @@ SQL queries are used to retrieve, manipulate, and store data within a relational
 - FROM : To select the table from which we want to select the data.
 - DISTINCT : To select only the unique attributes present in the field chosen.
 - AS : Aliasing the fieldname in the output panel.
+- VIEW : Used to view the data of your specifications from the table.
