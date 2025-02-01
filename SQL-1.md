@@ -383,3 +383,32 @@ WHERE country NOT IN
       WHERE indep_year < 1800 )
 ```
 " NOT IN " is used.
+### Subqueries inside WHERE
+The type we have seen above.
+### Syntax
+```sql
+SELECT *
+FROM some_table
+WHERE some_field IN
+       ( include subquery here )
+```
+### Subqueries inside SELECT 
+### Example
+```sql
+SELECT continent,
+      (SELECT COUNT(*)
+       FROM monarchs
+       WHERE state.continent = monarch.continent)
+FROM states
+```
+### Subqueries inside FROM 
+### Example
+```sql
+SELECT DISTINCT monarch.continent , sub.recent
+FROM monarch
+     ( SELECT continent , MAX(indep_year) AS recent
+       FROM states
+       GROUP BY continent) AS sub
+WHERE sub.continent = monarch.continent
+```
+# Data Manipulation 
