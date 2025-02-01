@@ -162,3 +162,61 @@ WHERE roll_no BETWEEN 34 AND 78;
 
 # Aggregate Functions
 
+## AVG() , SUM() , MIN() , MAX() , COUNT() 
+### Syntax
+```sql
+SELECT SUM(fieldname)
+FROM tablename
+```
+Similar syntax can be used for the other functions. While AVG() and SUM() can only be used for numerical values the rest i.e MIN() , MAX() and COUNT() can be used for various datatypes. For alphabets the minimum value would be 'A', the maximum being 'Z' . 
+
+## ROUND()
+### Syntax
+```sql
+SELECT ROUND(AVG(fieldname), 2 ) AS aliasname
+FROM tablename
+```
+This rounds off the value to 2 decimal places. When we don't specify a number it gets rounded off to a whole number (same happens when the number is 0).  
+When the number is a negative number it gets rounded off to the tens (-1), hundreds (-2) , thousands (-3) and so on. 
+
+### We can use arithmetic functions to do operations on the fields too.
+### Syntax
+```sql
+SELECT (field1 * field2) AS aliasname
+FROM tablename
+```
+# Sorting Results
+## ORDER BY 
+### Syntax
+```sql
+SELECT fieldname1, fieldname2
+FROM tablename
+ORDER BY fieldname1
+```
+We can also choose the order in which it is order , for example 
+### Example
+```sql
+SELECT title, budget
+FROM theatre
+ORDER BY budget ASC , title ASC
+```
+ASC or DESC can be used.
+## GROUP BY 
+### Syntax
+```sql
+SELECT field1 , field3, COUNT(field2)
+FROM tablename
+GROUP BY field1
+```
+This shows the count of unique combinations of entities of field1 and field3. 
+## HAVING 
+### Syntax
+```sql
+SELECT field1, COUNT(field2) AS aliasname
+FROM tablename
+GROUP BY field1
+HAVING COUNT(field2) > 10
+```
+WHERE filters individual records whereas HAVING filters grouped records.
+# Joining Data
+
