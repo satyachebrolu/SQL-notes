@@ -265,3 +265,121 @@ INNER JOIN another_table
 ON left_table.id = another_table.id
 ```
 ## OUTER JOINS
+### Left Join 
+It will return all the values of the left table , and those records of the right table that match on the joining field provided.
+### Syntax
+```sql
+SELECT p2.country , p2.continent , prime_minister , president
+FROM presidents AS p1
+LEFT JOIN prime_minister AS p2
+USING(country)
+```
+LEFT JOIN can also be written as LEFT OUTER JOIN .
+### Right Join
+It will return all the values of the right table , and those records of the left table that match on the joining field provided.
+### Syntax
+```sql
+SELECT p2.country , p2.continent , prime_minister , president
+FROM presidents AS p1
+RIGHT JOIN prime_minister AS p2
+USING(country)
+```
+It can also be written as RIGHT OUTER JOIN .  
+Any Right Join can be written as a Left Join.
+### Full Join
+It is a combination of Right Join and Left Join.
+### Syntax
+```sql
+SELECT p2.country , p2.continent , prime_minister , president
+FROM presidents AS p1
+FULL JOIN prime_minister AS p2
+USING(country)
+```
+FULL OUTER JOIN can also be used.
+### Cross Join
+It creates all the possible combinations between left table and right table.
+### Syntax
+```sql
+SELECT id1, id2
+FROM table1
+CROSS JOIN table2
+```
+### Self Join 
+They are used to compare parts of the same table
+### Syntax
+```sql
+SELECT
+   p1.country AS country1
+   p2.country AS country2
+   p1.continent
+FROM prime_ministers AS p1
+SELF JOIN prime_ministers as p2
+USING(continent)
+   AND p1.country <> p2.country
+```
+'<>' is not equal to symbol
+## SET THEORY IN SQL
+### UNION
+It takes two tables as input and return all the records from  both tables.
+### Syntax
+```sql
+SELECT field1.1, field2
+FROM table1
+UNION 
+SELECT field1.2,field2
+FROM table2
+```
+### UNION ALL
+It does the same as above but also returns the duplicate values.
+### Syntax
+```sql
+SELECT *
+FROM table1
+UNION ALL
+SELECT *
+FROM table2
+```
+### INTERSECT
+Return the records that are the same in both the tables.
+### Syntax
+```sql
+SELECT field1.1, field2
+FROM table1
+INTERSECT
+SELECT field1.2,field2
+FROM table2
+```
+### EXCEPT 
+Return records on the first table that are not there on the second table.
+### Syntax
+```sql
+SELECT field1.1, field2
+FROM table1
+EXCEPT
+SELECT field1.2,field2
+FROM table2
+```
+## Subqueries
+### SEMI JOIN 
+Chooses records in the first table where a condition is met in the second table.
+### Syntax
+```sql
+SELECT president, country, continent
+FROM presidents
+WHERE country IN
+    ( SELECT country
+      FROM states
+      WHERE indep_year < 1800 )
+```
+### ANTI JOIN 
+It is the opposite of a SEMI JOIN 
+### Syntax
+```sql
+SELECT president, country, continent
+FROM presidents
+WHERE country NOT IN
+    ( SELECT country
+      FROM states
+      WHERE indep_year < 1800 )
+```
+" NOT IN " is used.
