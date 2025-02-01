@@ -219,4 +219,49 @@ HAVING COUNT(field2) > 10
 ```
 WHERE filters individual records whereas HAVING filters grouped records.
 # Joining Data
-
+## INNER JOIN 
+looks for records on both tables wich match on a given field.
+### Syntax
+```sql
+SELECT table2.f1 , table2.f2 , field1, field2
+FROM table1
+INNER JOIN table2
+ON table1.field = table2.f1
+```
+### Example
+```sql
+SELECT p2.country , p2.continent , prime_minister , president
+FROM presidents AS p1
+INNER JOIN prime_minister AS p2
+ON p1.country = p2.country                          
+```
+```sql
+SELECT p2.country , p2.continent , prime_minister , president
+FROM presidents AS p1
+INNER JOIN prime_minister AS p2
+USING(country)
+```
+Both of them give the same result.
+## Relationships
+### One-to-Many
+one record is related to many records in the other table.  
+Example : Author and books written by the author.
+### One-to-One
+one record is related on to only one record on the other table 
+Example : Finger and fingerprint.
+### Many-to-Many 
+Many records are related to many other records in the other table.
+Example : Languages spoken in different countries.
+## Multiple Joins
+### Join on Joins
+### Syntax
+```sql
+SELECT *
+FROM left_table
+INNER JOIN right_table
+ON left_table.id = right_table.id
+   AND left_table.terms = right_table.terms
+INNER JOIN another_table
+ON left_table.id = another_table.id
+```
+## OUTER JOINS
