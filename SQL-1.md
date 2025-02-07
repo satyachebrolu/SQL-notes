@@ -412,3 +412,5 @@ FROM monarch
 WHERE sub.continent = monarch.continent
 ```
 # Data Manipulation 
+## CASE Statements 
+Contains WHEN , THEN , ELSE , END
